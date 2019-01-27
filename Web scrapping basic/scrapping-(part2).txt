@@ -1,0 +1,131 @@
+Python 3.6.6 (v3.6.6:4cf1f54eb7, Jun 27 2018, 03:37:03) [MSC v.1900 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> import requests    # we are importing the requests
+>>> import bs4      # importing bs4 aka beutiful soup for scrraping html and xml files.
+>>> response =  requests.get('https://en.wikipedia.org/wiki/Artificial_intelligence')  # requesting to get the content of the website and storeing it in our res variable
+>>> type(response)  # defineing our object of res type
+
+<class 'requests.models.Response'> # states that res is the object of type requests
+>>> response.text # getting all the  details , as we dont need all the details we would only extract the usefull details  that we need as shown below
+
+
+# all the texts inside the webpage is shown #
+
+
+
+
+>>> soup  = bs4.BeautifulSoup(res.text , 'lxml' ) # object soup from bs4 i want method BeautifulSoup passing arguments the stored file response.text and and  xlml the tree structure used ,python lib for analysing html.
+>>> type(soup)# defineing our object of type BeautifulSoup , so it is no longer the object of requests.
+     <class 'bs4.BeautifulSoup'>
+>>> soup.select('.toclevel-1') # object soup calls select which calls the class mw-headline.
+>>>  # prints what inside the class .toclevel-1 # now there are a lot of unwanted information in the class but we only want the text inside the class
+>>> for i in soup.select('.toclevel-1') # running a for loop to get the text inside the class.
+>>>  print(i.text)
+
+
+
+>>> # text# 
+1 History
+2 Basics
+3 Problems
+
+3.1 Reasoning, problem solving
+3.2 Knowledge representation
+3.3 Planning
+3.4 Learning
+3.5 Natural language processing
+3.6 Perception
+3.7 Motion and manipulation
+3.8 Social intelligence
+3.9 General intelligence
+
+
+4 Approaches
+
+4.1 Cybernetics and brain simulation
+4.2 Symbolic
+
+4.2.1 Cognitive simulation
+4.2.2 Logic-based
+4.2.3 Anti-logic or scruffy
+4.2.4 Knowledge-based
+
+
+4.3 Sub-symbolic
+
+4.3.1 Embodied intelligence
+4.3.2 Computational intelligence and soft computing
+
+
+4.4 Statistical learning
+4.5 Integrating the approaches
+
+
+5 Tools
+
+5.1 Search and optimization
+5.2 Logic
+5.3 Probabilistic methods for uncertain reasoning
+5.4 Classifiers and statistical learning methods
+5.5 Artificial neural networks
+
+5.5.1 Deep feedforward neural networks
+5.5.2 Deep recurrent neural networks
+
+
+5.6 Evaluating progress
+
+
+6 Applications
+
+6.1 Healthcare
+6.2 Automotive
+6.3 Finance and economics
+6.4 Government
+6.5 Video games
+6.6 Military
+6.7 Audit
+6.8 Advertising
+6.9 Art
+
+
+7 Philosophy and ethics
+
+7.1 The limits of artificial general intelligence
+7.2 Potential harm
+
+7.2.1 Existential risk
+7.2.2 Devaluation of humanity
+7.2.3 Social justice
+7.2.4 Decrease in demand for human labor
+7.2.5 Autonomous weapons
+
+
+7.3 Ethical machines
+
+7.3.1 Artificial moral agents
+7.3.2 Machine ethics
+7.3.3 Malevolent and friendly AI
+
+
+7.4 Machine consciousness, sentience and mind
+
+7.4.1 Consciousness
+7.4.2 Computationalism and functionalism
+7.4.3 Strong AI hypothesis
+7.4.4 Robot rights
+
+
+7.5 Superintelligence
+
+7.5.1 Technological singularity
+7.5.2 Transhumanism
+
+8 In fiction
+9 See also
+10 Explanatory notes
+11 References
+
+                              # thank-you #
+
+

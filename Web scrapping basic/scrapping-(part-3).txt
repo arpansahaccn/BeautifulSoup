@@ -1,0 +1,122 @@
+Python 3.6.6 (v3.6.6:4cf1f54eb7, Jun 27 2018, 03:37:03) [MSC v.1900 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> import requests    # we are importing the requests
+>>> import bs4      # importing bs4 aka beutiful soup for scrraping html and xml files.
+>>> response =  requests.get('https://en.wikipedia.org/wiki/Artificial_intelligence')  # requesting to get the content of the website and storeing it in our res variable
+>>> type(response)  # defineing our object of res type
+
+<class 'requests.models.Response'> # states that res is the object of type requests
+>>> response.text # getting all the  details , as we dont need all the details we would only extract the usefull details  that we need as shown below
+
+
+# all the texts inside the webpage is shown #
+
+
+
+
+>>> soup  = bs4.BeautifulSoup(res.text , 'lxml' ) # object soup from bs4 i want method BeautifulSoup passing arguments the stored file response.text and and  xlml the tree structure used ,python lib for analysing html.
+>>> type(soup)# defineing our object of type BeautifulSoup , so it is no longer the object of requests.
+     <class 'bs4.BeautifulSoup'>
+>>> for link in soup.find_all('a' , href=True): # only a containing links .
+>>>  print(link['href'])
+>>> # prints link #
+
+/
+/courses/all
+/nanodegree
+/hire-talent
+/corporate-training
+/referral
+https://auth.udacity.com/sign-in?next=https://classroom.udacity.com/authenticated
+/pathfinder
+#
+/
+/
+tel:18001216240
+/nanodegree
+/enterprise
+/hire-talent
+/pathfinder
+https://auth.udacity.com/sign-up?next=https://classroom.udacity.com/authenticated
+/referral
+/track/machine-learning
+/course/ai-artificial-intelligence-nanodegree--nd898
+/course/deep-learning-nanodegree--nd101
+/course/machine-learning-engineer-nanodegree--nd009t
+/course/deep-learning-nanodegree--nd101
+/course/data-analyst-nanodegree--nd002
+/course/data-scientist-nanodegree--nd025
+/course/ai-artificial-intelligence-nanodegree--nd898
+/course/computer-vision-nanodegree--nd891
+/course/machine-learning-engineer-nanodegree--nd009-infn
+/course/ai-programming-python-nanodegree--nd089
+/track/machine-learning
+/track/machine-learning
+/track/data-science
+/track/data-science
+/school-of-ai
+/school-of-ai
+/track/mobile-development
+/track/mobile-development
+/track/web-development
+/track/web-development
+/school-of-autonomous-systems
+/school-of-autonomous-systems
+https://auth.udacity.com/sign-up
+https://www.udacity.com/legal/terms-of-use
+https://in.udacity.com/legal/privacy
+/
+/course/vr-foundations-nanodegree--nd105
+/course/vr-mobile-360-nanodegree--nd106
+/course/vr-high-immersion-nanodegree--nd107
+/course/google-analytics-nanodegree--nd253
+/course/android-basics-nanodegree-by-google--nd803
+/course/machine-learning-engineer-nanodegree--nd009
+/course/ios-developer-nanodegree--nd003
+/course/business-analyst-nanodegree--nd008
+/course/data-analyst-nanodegree--nd002
+/course/front-end-web-developer-nanodegree--nd001
+/course/full-stack-web-developer-nanodegree--nd004
+/course/intro-to-programming-nanodegree--nd000
+/course/react-nanodegree--nd019
+/course/artificial-intelligence-nanodegree--nd889
+/course/deep-learning-nanodegree--nd101
+/course/digital-marketing-nanodegree--nd018
+/course/machine-learning-engineer-nanodegree--nd009
+/course/robotics-software-engineer--nd209
+/course/self-driving-car-engineer-nanodegree--nd013
+/nanodegree
+/courses/all
+https://career-resource-center.udacity.com
+/success
+/us
+http://blog.udacity.com
+https://www.udacity.com/jobs
+/business
+/enterprise
+/hire-talent
+/contact
+http://support.udacity.com
+http://status.udacity.com
+/legal
+/legal
+Regulatory Information
+/sitemap
+https://cn.udacity.com
+https://eu.udacity.com
+https://www.udacity.com
+https://www.facebook.com/Udacity
+https://twitter.com/udacity
+https://medium.com/udacity
+https://www.linkedin.com/company/udacity
+https://www.instagram.com/udacity/
+https://plus.google.com/+Udacity/posts
+
+>>> if '#' in link['href'] # if there is a # before any link pass it and print all the non pound starting links.
+>>> pass
+>>> print (link['href'])
+
+https://plus.google.com/+Udacity/posts
+
+# BeautifulSoup Documentation attested #
+# Thank-you #
